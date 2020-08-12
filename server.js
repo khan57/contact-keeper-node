@@ -1,4 +1,14 @@
-const app=require('express')();
+const express=require('express');
+const app =express();
+const connectDb=require('./config/db');
+const connectDB = require('./config/db');
+
+// Connect Database
+connectDB();
+
+// Init Middleware
+
+app.use(express.json({extended:false})); 
 
 app.get('/',(req,res)=>{
     res.json({statusCode:200,msg:"Welcome to contact keeper API ..."});
